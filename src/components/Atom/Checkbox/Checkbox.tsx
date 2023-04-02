@@ -1,7 +1,9 @@
 import React from 'react'
 
-const Checkbox = (): JSX.Element => {
-  return <input type="checkbox" />
+type Props = JSX.IntrinsicElements['input']
+
+const Checkbox = ({ ...rest }: Props): JSX.Element => {
+  return <input type="checkbox" {...rest} />
 }
 
 export default Checkbox

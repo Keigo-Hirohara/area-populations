@@ -1,5 +1,9 @@
 import type { NextPage } from 'next'
 
+const options: {} = {
+  maintainAspectRatio: false,
+}
+
 const Home: NextPage = () => {
   return (
     <div>
