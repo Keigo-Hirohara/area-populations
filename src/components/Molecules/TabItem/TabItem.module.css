@@ -1,0 +1,9 @@
+.tabItem {
+  width: 20%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: lightblue;
+}
