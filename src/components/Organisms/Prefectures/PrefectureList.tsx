@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent, useCallback } from 'react'
 import PrefectureItem from '../../Molecules/PrefectureItem/PrefectureItem'
 import { usePrefecture } from '../../../hooks/prefecture'
 
@@ -15,9 +15,9 @@ const PrefectureList = (): JSX.Element => {
       {data?.result.map((item: any) => {
         return (
           <PrefectureItem
-            label={item.prefName}
             key={item.prefCode}
-            handleClick={() => console.log(item.prefCode)}
+            label={item.prefName}
+            prefCode={item.prefCode}
           />
         )
       })}

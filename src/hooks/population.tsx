@@ -1,7 +1,6 @@
-import useSWR, { SWRResponse, useSWRConfig } from 'swr'
+import useSWR, { SWRResponse } from 'swr'
 import { Populations } from '../types/Populations'
 import { fetcher } from '../utils/fetcher'
-import { useCallback } from 'react'
 
 export const usePopulation = (prefCode: string) => {
   const { data, isLoading, error } = useSWR<Populations, Error>(
@@ -9,16 +8,9 @@ export const usePopulation = (prefCode: string) => {
     fetcher
   )
 
-  const { mutate } = useSWRConfig()
-
-  const fetchPrefectureItem = useCallback((prefCode: string) => {
-    mutate(`/population/composition/perYear?prefCode=${prefCode}`)
-  }, [])
-
   return {
     data,
     isLoading,
     error,
-    fetchPrefectureItem,
   }
 }

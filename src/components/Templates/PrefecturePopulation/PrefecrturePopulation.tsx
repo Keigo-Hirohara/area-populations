@@ -1,17 +1,13 @@
 import React from 'react'
 import PrefectureList from '../../Organisms/Prefectures/PrefectureList'
-import Linegraph from '../../Organisms/Linegraph/Linegraph'
-import { FormatedPopulationsForLinegraph } from '../../../types/Populations'
+import Linegraph from '../../Molecules/Linegraph/Linegraph'
+import Chart from '../../Organisms/Chart/Chart'
 
-type Props = {
-  populationsData?: FormatedPopulationsForLinegraph
-}
-
-const PrefecrturePopulation = ({ populationsData }: Props): JSX.Element => {
+const PrefecrturePopulation = (): JSX.Element => {
   return (
     <div>
       <PrefectureList />
-      {populationsData && <Linegraph data={populationsData} />}
+      <Chart />
     </div>
   )
 }
