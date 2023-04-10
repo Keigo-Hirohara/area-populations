@@ -1,29 +1,17 @@
 import React from 'react'
-import Prefectures from '../../Organisms/Prefectures/Prefectures'
-import Linegraph from '../../Atoms/Linegraph/Linegraph'
+import PrefectureList from '../../Organisms/Prefectures/PrefectureList'
+import Linegraph from '../../Organisms/Linegraph/Linegraph'
+import { FormatedPopulationsForLinegraph } from '../../../types/Populations'
 
 type Props = {
-  prefecturesData: {
-    prefCode: number
-    prefName: string
-  }[]
-  data: {
-    labels: string[]
-    datasets: {
-      label: string
-      data: number[]
-    }[]
-  }
+  populationsData?: FormatedPopulationsForLinegraph
 }
 
-const PrefecrturePopulation = ({
-  prefecturesData,
-  data,
-}: Props): JSX.Element => {
+const PrefecrturePopulation = ({ populationsData }: Props): JSX.Element => {
   return (
     <div>
-      <Prefectures prefecturesData={prefecturesData} />
-      <Linegraph data={data} />
+      <PrefectureList />
+      {populationsData && <Linegraph data={populationsData} />}
     </div>
   )
 }

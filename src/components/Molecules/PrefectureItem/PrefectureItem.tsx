@@ -5,12 +5,13 @@ import styles from './PrefectureItem.module.css'
 
 type Props = {
   label: string
+  handleClick: () => void
 }
 
-const PrefectureItem = ({ label }: Props): JSX.Element => {
+const PrefectureItem = ({ label, handleClick }: Props): JSX.Element => {
   return (
     <div>
-      <Checkbox className={styles.checkBox} />
+      <Checkbox className={styles.checkBox} onChange={handleClick} />
       <Label label={label} />
     </div>
   )
