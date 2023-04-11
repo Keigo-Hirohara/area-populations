@@ -18,6 +18,7 @@ const PrefectureList = (): JSX.Element => {
             key={item.prefCode}
             label={item.prefName}
             prefCode={item.prefCode}
+            prefName={item.prefName}
           />
         )
       })}

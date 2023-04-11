@@ -3,18 +3,22 @@ import Checkbox from '../../Atoms/Checkbox/Checkbox'
 import Label from '../../Atoms/Label/Label'
 import styles from './PrefectureItem.module.css'
 import { usePopulation } from '../../../hooks/population'
+import { useLinegraphContext } from '../../../hooks/linegraphContext'
 
 type Props = {
   label: string
   prefCode: string
+  prefName: string
 }
 
-const PrefectureItem = ({ label, prefCode }: Props): JSX.Element => {
+const PrefectureItem = ({ label, prefCode, prefName }: Props): JSX.Element => {
   const { data, error, isLoading } = usePopulation(prefCode)
+  const { appendToContext } = useLinegraphContext()
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
+      if (!data) return
       if (e.target.checked) {
-        console.log(data?.result.data)
+        appendToContext(data?.result.data, prefName)
       }
     },
     [data]

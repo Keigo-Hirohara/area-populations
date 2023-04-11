@@ -1,5 +1,5 @@
 import React from 'react'
-import PrefectureList from '../../Organisms/Prefectures/PrefectureList'
+import PrefectureList from '../../Organisms/PrefectureList/PrefectureList'
 import Linegraph from '../../Molecules/Linegraph/Linegraph'
 import Chart from '../../Organisms/Chart/Chart'
 
