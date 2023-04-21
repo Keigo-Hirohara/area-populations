@@ -51,11 +51,24 @@ export const useLinegraphContext = () => {
     })
   }
 
+  const removeFromContext = async (prefName: string) => {
+    await mutate((prev) => {
+      if (!prev) {
+        return
+      }
+      return {
+        years: prev?.years,
+        data: prev?.data.filter((item) => item.prefecture !== prefName),
+      }
+    })
+  }
+
   return {
     data,
     isLoading,
     error,
     mutate,
     appendToContext,
+    removeFromContext,
   }
 }

@@ -13,13 +13,15 @@ type Props = {
 
 const PrefectureItem = ({ label, prefCode, prefName }: Props): JSX.Element => {
   const { data, error, isLoading } = usePopulation(prefCode)
-  const { appendToContext } = useLinegraphContext()
+  const { appendToContext, removeFromContext } = useLinegraphContext()
   const handleChange = useCallback(
     async (e: ChangeEvent<HTMLInputElement>) => {
       if (!data) return
       if (e.target.checked) {
         await appendToContext(data?.result.data, prefName)
+        return
       }
+      await removeFromContext(prefName)
     },
     [data]
   )
