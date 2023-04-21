@@ -1,13 +1,9 @@
-import { Populations, PopulationsForContext } from '../types/Populations'
-import { formatAgegroup } from '../utils/format'
+import {
+  Populations,
+  PopulationsForContext,
+  PopulationsForContextItem,
+} from '../types/Populations'
 import { useGlobalState } from './globalState'
-
-export type LinegraphContext = {
-  T: {
-    data: string[]
-    label: string
-  }
-}
 
 export const useLinegraphContext = () => {
   const { data, isLoading, error, mutate } = useGlobalState<
@@ -15,33 +11,40 @@ export const useLinegraphContext = () => {
     Error
   >('linegraphContext')
 
-  const appendToContext = (
+  const appendToContext = async (
     fetchData: Populations['result']['data'],
     prefName: string
   ) => {
     const formatedYears = fetchData[0].data.map((populationsItem) =>
       populationsItem.year.toString()
     )
-    const formatedPopulations: PopulationsForContext = fetchData.map((item) => {
-      const populations = item.data.map(
-        (populationsItem) => populationsItem.value
-      )
-      return Object.fromEntries([
-        ['ageGroup', formatAgegroup(item.label)],
-        [
-          'populationChange',
-          Object.fromEntries([
-            ['label', prefName],
-            ['data', populations],
-          ]),
-        ],
-      ])
-    })
-    if (data) {
-      mutate([...data, ...formatedPopulations])
-      return
+
+    const formatedPopulations: PopulationsForContextItem = {
+      prefecture: prefName,
+      populations: fetchData.map((fetchDataItem) => {
+        const populationChange = fetchDataItem.data.map(
+          (populationsItem) => populationsItem.value
+        )
+
+        return {
+          demographic: fetchDataItem.label,
+          populationChange,
+        }
+      }),
     }
-    mutate(formatedPopulations)
+
+    mutate((prev) => {
+      if (prev?.data) {
+        return {
+          years: prev.years,
+          data: [...prev.data, formatedPopulations],
+        }
+      }
+      return {
+        years: formatedYears,
+        data: [formatedPopulations],
+      }
+    })
   }
 
   return {

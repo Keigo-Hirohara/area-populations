@@ -12,13 +12,18 @@ export type Populations = {
   }
 }
 
+export type PopulationsForContextItem = {
+  prefecture: string
+  populations: {
+    demographic: AgeGroup
+    populationChange: number[]
+  }[]
+}
+
 export type PopulationsForContext = {
-  ageGroup: formatedAgegroup
-  populationChange: {
-    label: string
-    data: number[]
-  }
-}[]
+  years: string[]
+  data: PopulationsForContextItem[]
+}
 
 export type FormatedPopulationsForLinegraph = {
   labels: string[]

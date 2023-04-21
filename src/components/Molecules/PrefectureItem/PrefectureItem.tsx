@@ -15,10 +15,10 @@ const PrefectureItem = ({ label, prefCode, prefName }: Props): JSX.Element => {
   const { data, error, isLoading } = usePopulation(prefCode)
   const { appendToContext } = useLinegraphContext()
   const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
+    async (e: ChangeEvent<HTMLInputElement>) => {
       if (!data) return
       if (e.target.checked) {
-        appendToContext(data?.result.data, prefName)
+        await appendToContext(data?.result.data, prefName)
       }
     },
     [data]

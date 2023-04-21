@@ -1,19 +1,24 @@
 import {
   FormatedPopulationsForLinegraph,
-  Populations,
+  PopulationsForContext,
 } from '../../types/Populations'
+import { AgeGroup } from '../../utils/format'
 
-export const formatPopulations = ({
-  data,
-}: Populations): FormatedPopulationsForLinegraph => {
-  const formatedData = data.map((item) => {
-    return {
-      labels: Object.values(item.data.year),
-      datasets: {
-        label: item.label,
-        data: Object.values(item.data.value),
-      },
-    }
-  })
-  return formatedData
+export const formatPopulationsForLinegraph = (
+  contextData: PopulationsForContext,
+  selectedDemographc: AgeGroup
+): FormatedPopulationsForLinegraph => {
+  return {
+    labels: contextData.years,
+    datasets: contextData.data.map((populationChangeItem) => {
+      const selectedItem = populationChangeItem.populations.filter(
+        (item) => item.demographic === selectedDemographc
+      )
+      const data = selectedItem.map((item) => item.populationChange)[0]
+      return {
+        label: populationChangeItem.prefecture,
+        data,
+      }
+    }),
+  }
 }

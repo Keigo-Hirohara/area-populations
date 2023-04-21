@@ -1,39 +1,19 @@
 import React from 'react'
 import Linegraph from '../../Molecules/Linegraph/Linegraph'
+import { useLinegraphContext } from '../../../hooks/linegraphContext'
+import { formatPopulationsForLinegraph } from '../../utils/formatPopulations'
 
-const mockData = {
-  labels: [
-    '2000',
-    '2005',
-    '2010',
-    '2015',
-    '2020',
-    '2025',
-    '2030',
-    '2035',
-    '2040',
-  ],
-  datasets: [
-    {
-      label: '千葉県',
-      data: [
-        5926285, 6056462, 6216289, 6222666, 6284480, 6118170, 5985915, 5822882,
-        5645611,
-      ],
-    },
-    {
-      label: '東京都',
-      data: [
-        12064101, 12576601, 13159388, 13515271, 14047594, 13845936, 13882538,
-        13851782, 13758624,
-      ],
-    },
-  ],
-}
 const Chart = () => {
+  const { data: contextData } = useLinegraphContext()
+
+  if (!contextData) {
+    return null
+  }
   return (
     <div>
-      <Linegraph data={mockData} />
+      <Linegraph
+        data={formatPopulationsForLinegraph(contextData, '年少人口')}
+      />
     </div>
   )
 }
