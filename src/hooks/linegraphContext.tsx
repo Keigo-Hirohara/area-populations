@@ -25,10 +25,14 @@ export const useLinegraphContext = () => {
         const populationChange = fetchDataItem.data.map(
           (populationsItem) => populationsItem.value
         )
+        let randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+          Math.random() * 256
+        )}, ${Math.floor(Math.random() * 256)})`
 
         return {
           demographic: fetchDataItem.label,
           populationChange,
+          color: randomColor,
         }
       }),
     }

@@ -10,6 +10,7 @@ type Props = {
         datasets: {
           label: string
           data: number[]
+          borderColor: string
         }[]
       }
     | undefined

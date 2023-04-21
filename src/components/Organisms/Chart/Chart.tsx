@@ -1,7 +1,7 @@
 import React from 'react'
 import Linegraph from '../../Molecules/Linegraph/Linegraph'
 import { useLinegraphContext } from '../../../hooks/linegraphContext'
-import { formatPopulationsForLinegraph } from '../../utils/formatPopulations'
+import { formatPopulationsForLinegraph } from '../../../utils/format'
 
 const Chart = () => {
   const { data: contextData } = useLinegraphContext()
@@ -11,9 +11,7 @@ const Chart = () => {
   }
   return (
     <div>
-      <Linegraph
-        data={formatPopulationsForLinegraph(contextData, '年少人口')}
-      />
+      <Linegraph data={formatPopulationsForLinegraph(contextData, '総人口')} />
     </div>
   )
 }

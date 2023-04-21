@@ -17,6 +17,7 @@ export type PopulationsForContextItem = {
   populations: {
     demographic: AgeGroup
     populationChange: number[]
+    color: string
   }[]
 }
 
@@ -30,5 +31,6 @@ export type FormatedPopulationsForLinegraph = {
   datasets: {
     label: string
     data: number[]
+    borderColor: string
   }[]
 }
