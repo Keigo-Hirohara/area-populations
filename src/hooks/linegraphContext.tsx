@@ -18,21 +18,21 @@ export const useLinegraphContext = () => {
     const formatedYears = fetchData[0].data.map((populationsItem) =>
       populationsItem.year.toString()
     )
+    let randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+      Math.random() * 256
+    )}, ${Math.floor(Math.random() * 256)})`
 
     const formatedPopulations: PopulationsForContextItem = {
       prefecture: prefName,
+      color: randomColor,
       populations: fetchData.map((fetchDataItem) => {
         const populationChange = fetchDataItem.data.map(
           (populationsItem) => populationsItem.value
         )
-        let randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-          Math.random() * 256
-        )}, ${Math.floor(Math.random() * 256)})`
 
         return {
           demographic: fetchDataItem.label,
           populationChange,
-          color: randomColor,
         }
       }),
     }

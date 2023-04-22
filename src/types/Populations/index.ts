@@ -14,10 +14,10 @@ export type Populations = {
 
 export type PopulationsForContextItem = {
   prefecture: string
+  color: string
   populations: {
     demographic: AgeGroup
     populationChange: number[]
-    color: string
   }[]
 }
 

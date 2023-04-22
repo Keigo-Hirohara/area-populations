@@ -25,7 +25,7 @@ export const formatAgegroup = (ageGroup: AgeGroup): formatedAgegroup => {
 
 export const formatPopulationsForLinegraph = (
   contextData: PopulationsForContext,
-  selectedDemographc?: AgeGroup
+  selectedDemographc: AgeGroup
 ): FormatedPopulationsForLinegraph => {
   return {
     labels: contextData.years,
@@ -37,7 +37,7 @@ export const formatPopulationsForLinegraph = (
       return {
         label: populationChangeItem.prefecture,
         data,
-        borderColor: selectedItem[0].color,
+        borderColor: populationChangeItem.color,
       }
     }),
   }

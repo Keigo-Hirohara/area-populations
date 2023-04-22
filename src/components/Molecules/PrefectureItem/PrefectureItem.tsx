@@ -32,7 +32,7 @@ const PrefectureItem = ({ label, prefCode, prefName }: Props): JSX.Element => {
     return <div>データを取得できませんでした。{error.message}</div>
   }
   return (
-    <div>
+    <div className={styles.prefectureItem}>
       <Checkbox className={styles.checkBox} onChange={handleChange} />
       <Label label={label} />
     </div>

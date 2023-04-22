@@ -4,7 +4,8 @@ import { AgeGroup } from '../utils/format'
 
 export const useActiveTab = () => {
   const { data, error, isLoading, mutate } = useGlobalState<AgeGroup, Error>(
-    'activeTab'
+    'activeTab',
+    '総人口'
   )
   return {
     data,

@@ -1,6 +1,7 @@
-import React, { ChangeEvent, useCallback } from 'react'
+import React from 'react'
 import PrefectureItem from '../../Molecules/PrefectureItem/PrefectureItem'
 import { usePrefecture } from '../../../hooks/prefecture'
+import styles from './PrefectureList.module.css'
 
 const PrefectureList = (): JSX.Element => {
   const { data, isLoading, error } = usePrefecture()
@@ -11,7 +12,7 @@ const PrefectureList = (): JSX.Element => {
     return <div className="">データの取得に失敗しました: {error.message}</div>
   }
   return (
-    <div>
+    <div className={styles.prefectureList}>
       {data?.result.map((item: any) => {
         return (
           <PrefectureItem

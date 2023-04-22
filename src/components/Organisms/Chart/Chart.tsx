@@ -15,7 +15,9 @@ const Chart = () => {
   return (
     <div>
       <TabList />
-      <Linegraph data={formatPopulationsForLinegraph(contextData, activeTab)} />
+      <Linegraph
+        data={formatPopulationsForLinegraph(contextData, activeTab || '総人口')}
+      />
     </div>
   )
 }
