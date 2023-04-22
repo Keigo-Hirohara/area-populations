@@ -1,4 +1,4 @@
-import { AgeGroup, formatedAgegroup } from '../../utils/format'
+import { AgeGroup } from '../../utils/format'
 
 export type Populations = {
   result: {

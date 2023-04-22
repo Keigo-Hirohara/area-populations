@@ -10,7 +10,7 @@ export type formatedAgegroup =
   | 'totalPopulation'
   | 'agingPopulation'
 
-export const formatAgegroup = (ageGroup: AgeGroup) => {
+export const formatAgegroup = (ageGroup: AgeGroup): formatedAgegroup => {
   switch (ageGroup) {
     case '年少人口':
       return 'youngPopulation'
@@ -25,7 +25,7 @@ export const formatAgegroup = (ageGroup: AgeGroup) => {
 
 export const formatPopulationsForLinegraph = (
   contextData: PopulationsForContext,
-  selectedDemographc: AgeGroup
+  selectedDemographc?: AgeGroup
 ): FormatedPopulationsForLinegraph => {
   return {
     labels: contextData.years,
