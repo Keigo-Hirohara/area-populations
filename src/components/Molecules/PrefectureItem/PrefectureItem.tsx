@@ -4,6 +4,7 @@ import Label from '../../Atoms/Label/Label'
 import styles from './PrefectureItem.module.css'
 import { usePopulation } from '../../../hooks/population'
 import { useLinegraphContext } from '../../../hooks/linegraphContext'
+import Skelton from '../../Atoms/Skelton/Skelton'
 
 type Props = {
   label: string
@@ -26,7 +27,7 @@ const PrefectureItem = ({ label, prefCode, prefName }: Props): JSX.Element => {
     [data]
   )
   if (isLoading) {
-    return <div>読み込み中です</div>
+    return <Skelton />
   }
   if (error) {
     return <div>データを取得できませんでした。{error.message}</div>
