@@ -4,6 +4,7 @@ import { useLinegraphContext } from '../../../hooks/linegraphContext'
 import { formatPopulationsForLinegraph } from '../../../utils/format'
 import TabList from '../TabList/TabList'
 import { useActiveTab } from '../../../hooks/activeTab'
+import styles from './Chart.module.css'
 
 const Chart = () => {
   const { data: contextData } = useLinegraphContext()
@@ -13,7 +14,7 @@ const Chart = () => {
     return null
   }
   return (
-    <div>
+    <div className={styles.chart}>
       <TabList />
       <Linegraph
         data={formatPopulationsForLinegraph(contextData, activeTab || '総人口')}

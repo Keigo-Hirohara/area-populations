@@ -2,8 +2,13 @@
   width: 20%;
   padding: 10px;
   cursor: pointer;
+  border: none;
+  background-color: white;
+  border-radius: 0.625rem;
+  border: 0.125rem solid #f0f0f0;
 }
 
 .selected {
-  background-color: lightblue;
+  background-color: #b9e9fc;
+  transform: scale(1.2, 1.2);
 }
