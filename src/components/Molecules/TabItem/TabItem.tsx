@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './TabItem.module.css'
 import { clsx } from 'clsx'
 import Label from '../../Atoms/Label/Label'
-import { AgeGroup } from '../../../utils/format'
+import { AgeGroup } from '../../../types/Populations'
 
 type Props = JSX.IntrinsicElements['button'] & {
   activeTab?: AgeGroup
