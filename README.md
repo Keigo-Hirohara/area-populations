@@ -3,7 +3,7 @@
 
 都道府県ごとの人口推移を可視化
 
-##　ローカルでの実行方法
+##　ローカルでの環境構築
 * https://opendata.resas-portal.go.jp にアクセスし、新規登録を済ませてAPI Keyを取得
 * 以下の二つの環境変数を設定
 * * NEXT_PUBLIC_API_DOMAIN=https://opendata.resas-portal.go.jp/api/v1
