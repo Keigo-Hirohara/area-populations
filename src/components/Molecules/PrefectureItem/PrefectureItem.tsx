@@ -13,7 +13,7 @@ type Props = {
 }
 
 const PrefectureItem = ({ label, prefCode, prefName }: Props): JSX.Element => {
-  const { data, error, isLoading } = usePopulation(prefCode)
+  const { data, isLoading } = usePopulation(prefCode)
   const { appendToContext, removeFromContext } = useLinegraphContext()
   const handleChange = useCallback(
     async (e: ChangeEvent<HTMLInputElement>) => {
@@ -28,9 +28,6 @@ const PrefectureItem = ({ label, prefCode, prefName }: Props): JSX.Element => {
   )
   if (isLoading) {
     return <Skelton />
-  }
-  if (error) {
-    return <div>データを取得できませんでした。{error.message}</div>
   }
   return (
     <div className={styles.prefectureItem}>

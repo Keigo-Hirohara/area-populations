@@ -1,18 +1,18 @@
 import {
-  Populations,
+  FetchResultOfPopulations,
   PopulationsForContext,
   PopulationsForContextItem,
 } from '../types/Populations'
 import { useGlobalState } from './globalState'
 
 export const useLinegraphContext = () => {
-  const { data, isLoading, error, mutate } = useGlobalState<
+  const { data, isLoading, mutate } = useGlobalState<
     PopulationsForContext,
     Error
   >('linegraphContext')
 
   const appendToContext = async (
-    fetchData: Populations['result']['data'],
+    fetchData: FetchResultOfPopulations['result']['data'],
     prefName: string
   ) => {
     const formatedYears = fetchData[0].data.map((populationsItem) =>
@@ -66,7 +66,6 @@ export const useLinegraphContext = () => {
   return {
     data,
     isLoading,
-    error,
     mutate,
     appendToContext,
     removeFromContext,

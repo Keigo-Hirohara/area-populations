@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import { fetcher } from '../utils/fetcher'
 import { Prefectures } from '../types/Prefectures'
 export const usePrefecture = () => {
-  const { data, isLoading, error } = useSWR<Prefectures, Error>(
+  const { data, isLoading } = useSWR<Prefectures, Error>(
     '/prefectures',
     fetcher
   )
@@ -10,6 +10,5 @@ export const usePrefecture = () => {
   return {
     data,
     isLoading,
-    error,
   }
 }

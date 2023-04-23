@@ -1,9 +1,9 @@
-import useSWR, { SWRResponse } from 'swr'
-import { Populations } from '../types/Populations'
+import useSWR from 'swr'
+import { FetchResultOfPopulations } from '../types/Populations'
 import { fetcher } from '../utils/fetcher'
 
 export const usePopulation = (prefCode: string) => {
-  const { data, isLoading, error } = useSWR<Populations, Error>(
+  const { data, isLoading } = useSWR<FetchResultOfPopulations, Error>(
     `/population/composition/perYear?prefCode=${prefCode}`,
     fetcher
   )
@@ -11,6 +11,5 @@ export const usePopulation = (prefCode: string) => {
   return {
     data,
     isLoading,
-    error,
   }
 }

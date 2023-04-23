@@ -5,12 +5,9 @@ import styles from './PrefectureList.module.css'
 import Skelton from '../../Atoms/Skelton/Skelton'
 
 const PrefectureList = (): JSX.Element => {
-  const { data, isLoading, error } = usePrefecture()
+  const { data, isLoading } = usePrefecture()
   if (isLoading) {
     return <Skelton />
-  }
-  if (error) {
-    return <div className="">データの取得に失敗しました: {error.message}</div>
   }
   return (
     <div className={styles.prefectureList}>

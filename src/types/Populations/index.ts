@@ -1,6 +1,12 @@
-import { AgeGroup } from '../../utils/format'
+export type AgeGroup = '年少人口' | '生産年齢人口' | '総人口' | '老年人口'
 
-export type Populations = {
+export type formatedAgegroup =
+  | 'youngPopulation'
+  | 'workingPopulation'
+  | 'totalPopulation'
+  | 'agingPopulation'
+
+export type FetchResultOfPopulations = {
   result: {
     data: {
       label: AgeGroup

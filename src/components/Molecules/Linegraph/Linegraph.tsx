@@ -1,4 +1,4 @@
-import { Chart, CoreChartOptions, registerables } from 'chart.js'
+import { Chart, registerables } from 'chart.js'
 import { _DeepPartialObject } from 'chart.js/dist/types/utils'
 import { Line } from 'react-chartjs-2'
 
